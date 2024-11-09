@@ -1,0 +1,64 @@
+## Capítulo 1
+
+## Becoming Functional - Several Questions
+
+La programación funcional (o PF) ha existido desde los primeros días de la computación y está pasando por una especie de renacimiento debido a su mayor uso con varios marcos y bibliotecas, especialmente en JavaScript (JS). En este capítulo, haremos lo siguiente:
+
+- Introducir algunos conceptos de la PF para dar una pequeña muestra de lo que significa.
+- Mostrar los beneficios (y problemas) que implica el uso de la PF y por qué deberíamos usarla.
+- Comenzar a pensar por qué JavaScript puede considerarse un lenguaje apropiado para la PF.
+- Repasar las características y herramientas del lenguaje que deberías conocer para aprovechar al máximo todo lo que se presenta en este libro.
+
+Al final de este capítulo, tendrás las herramientas básicas que usaremos en el resto del libro, así que comencemos aprendiendo sobre programación funcional.
+
+### Teoría versus práctica
+
+En este libro, no abordaremos la PF de manera teórica. En cambio, nuestro objetivo es mostrarte cómo algunas de sus técnicas y principios pueden aplicarse con éxito a la programación común y diaria en JavaScript. Pero—y esto es importante—no lo haremos de manera dogmática, sino de una forma muy práctica. No descartaremos constructos útiles de JavaScript simplemente porque no cumplan con las expectativas académicas de la PF. Igualmente, no evitaremos características prácticas de JavaScript solo para encajar en el paradigma de la PF. De hecho, podríamos decir que estaremos haciendo **Programación Funcional Sorta** (SFP), ya que nuestro código será una mezcla de características de la PF, las clásicas imperativas y la programación orientada a objetos (OOP).
+
+Ten cuidado, sin embargo: lo que acabamos de decir no significa que dejaremos toda la teoría a un lado. Seremos selectivos y tocaremos los puntos teóricos principales, aprenderemos algo de vocabulario y definiciones, y explicaremos los conceptos clave de la PF, pero siempre manteniendo en vista la idea de producir un código útil de JavaScript real, en lugar de intentar cumplir con algún criterio místico y dogmático de la PF.
+
+### OOP y la complejidad actual
+
+La programación orientada a objetos (OOP) ha sido una forma de resolver la complejidad inherente a la escritura de programas y sistemas grandes, y desarrollar arquitecturas de aplicaciones limpias, extensibles y escalables. Sin embargo, debido a la escala de las aplicaciones web actuales, la complejidad de todos los códigos sigue creciendo. Además, las nuevas características de JavaScript hacen posible desarrollar aplicaciones que ni siquiera habrían sido posibles hace algunos años; piensa en las aplicaciones móviles (híbridas) hechas con Ionic, Apache Cordova o React Native, o aplicaciones de escritorio hechas con Electron o NW.js, por ejemplo. JavaScript también ha migrado al backend con Node.js, por lo que hoy el alcance de uso del lenguaje ha crecido de una manera seria, abarcando toda la complejidad añadida de los diseños modernos.
+
+### Un enfoque diferente
+
+La programación funcional es una forma diferente de escribir programas, y a veces puede ser difícil de aprender. En la mayoría de los lenguajes, la programación se realiza de manera imperativa: un programa es una secuencia de declaraciones, ejecutadas de manera prescrita, y el resultado deseado se logra creando objetos y manipulándolos, lo que generalmente significa modificar los objetos en sí mismos. La PF se basa en producir el resultado deseado evaluando expresiones construidas a partir de funciones que se componen entre sí. En la PF, es común pasar funciones de un lado a otro (como pasar parámetros a otras funciones o devolver funciones como resultado de un cálculo), no usar bucles (optando por recursión en su lugar), y evitar efectos secundarios (como modificar objetos o variables globales).
+
+En otras palabras, la PF se enfoca en qué se debe hacer, más que en cómo hacerlo. En lugar de preocuparse por bucles o arreglos, se trabaja en un nivel más alto, considerando lo que debe hacerse. Después de acostumbrarte a este estilo, verás que tu código se vuelve más simple, corto y elegante, y será fácil de probar y depurar. Sin embargo, no caigas en la trampa de considerar que la PF es el objetivo. Piensa en la PF solo como un medio para un fin, como con todas las herramientas de software. El código funcional no es bueno solo por ser funcional, y escribir código malo es tan posible con PF como con cualquier otra técnica.
+
+---
+
+### Qué no es la programación funcional
+
+Dado que hemos mencionado algunas cosas sobre lo que es la PF, también aclaremos algunos malentendidos comunes y veamos lo que NO es la PF:
+
+- **La PF no es solo una cosa académica:** Es cierto que el cálculo lambda, sobre el cual se basa la PF, fue desarrollado por Alonzo Church en 1936 como una herramienta para probar un resultado importante en la teoría de la computación (¡más de 20 años antes de los lenguajes de programación modernos!). Sin embargo, los lenguajes de PF se están utilizando hoy en día para todo tipo de sistemas.
+
+- **La PF no es lo opuesto a la programación orientada a objetos (OOP):** No se trata de elegir entre programación declarativa o imperativa. Puedes mezclar y combinar como más te convenga, y eso es lo que haremos a lo largo de este libro, reuniendo lo mejor de todos los mundos.
+
+- **La PF no es excesivamente compleja de aprender:** Algunos de los lenguajes de PF son bastante diferentes de JavaScript, pero las diferencias son principalmente sintácticas. Una vez que aprendas los conceptos básicos, verás que puedes obtener los mismos resultados en JavaScript que con los lenguajes de PF.
+
+También es relevante mencionar que varios marcos modernos, como la combinación React y Redux, incluyen ideas de PF.
+
+Si retrocedemos en la historia de la computación, encontraremos que el segundo lenguaje de programación más antiguo que todavía se usa, Lisp, se basa en la PF. Desde entonces, ha habido muchos más lenguajes funcionales, y la PF ha sido aplicada de manera más amplia. Pero aun así, si le preguntas a la gente qué es la PF, probablemente recibirás dos respuestas muy diferentes. Por ejemplo, en React, se dice que la vista (lo que el usuario ve en un momento dado) es una función del estado actual. Usas una función para calcular qué HTML y CSS deben producirse en cada momento, pensando de manera "caja negra". De manera similar, en Redux tienes el concepto de acciones que son procesadas por reductores. Una acción proporciona algunos datos, y un reductor es una función que produce el nuevo estado de la aplicación de manera funcional a partir del estado actual y los datos proporcionados.
+
+Así que, tanto por las ventajas teóricas (de las cuales hablaremos en la siguiente sección) como por las prácticas (como el hecho de que podemos usar los marcos y bibliotecas más recientes), tiene sentido considerar la programación funcional. Vamos a ello.
+
+### ¿Por qué usar PF?
+
+A lo largo de los años, ha habido muchos estilos y modas en la programación. Sin embargo, la PF ha demostrado ser bastante resistente y es de gran interés hoy en día. ¿Por qué querrías usar la PF? La pregunta debería ser primero: ¿qué quieres conseguir? Y solo después, ¿la PF te lleva allí? Vamos a responder estas importantes preguntas en las siguientes secciones.
+
+#### Lo que necesitamos
+
+Podemos estar de acuerdo en que la siguiente lista de preocupaciones es universal. Nuestro código debe tener las siguientes cualidades:
+
+- **Modular:** La funcionalidad de tu programa debe dividirse en módulos independientes, cada uno de los cuales contiene lo necesario para realizar un aspecto de la funcionalidad del programa. Los cambios en un módulo o función no deberían afectar al resto del código.
+- **Comprensible:** Un lector de tu programa debería poder discernir sus componentes, sus funciones y sus relaciones sin un esfuerzo indebido. Esto está estrechamente relacionado con el mantenimiento del código; tu código tendrá que ser mantenido en algún momento, ya sea para ser cambiado o para añadir nueva funcionalidad.
+- **Testable (probable de probar):** Las pruebas unitarias intentan comprobar pequeñas partes de tu programa, verificando su comportamiento independientemente del resto del código. Tu estilo de programación debe favorecer escribir código que simplifique la tarea de escribir pruebas unitarias.
+- **Extensible:** Es un hecho que tu programa algún día requerirá mantenimiento, posiblemente para añadir nueva funcionalidad. Esos cambios deberían impactar la estructura y el flujo de datos del código original lo mínimo posible (si es que lo hacen).
+- **Reutilizable:** La reutilización del código tiene como objetivo ahorrar recursos, tiempo y dinero, y reducir la redundancia aprovechando el código ya escrito. Hay algunas características que ayudan a lograr este objetivo, como la modularidad (que ya hemos mencionado), la alta cohesión (todas las piezas en un módulo pertenecen juntas), el bajo acoplamiento (los módulos son independientes entre sí), la separación de preocupaciones (las partes de un programa deben superponerse en funcionalidad lo menos posible) y el ocultamiento de información (los cambios internos de un módulo no deberían afectar al resto del sistema).
+
+#### Lo que conseguimos
+
+¿Entonces, la PF te da las cinco características
