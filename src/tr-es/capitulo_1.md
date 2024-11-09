@@ -59,6 +59,88 @@ Podemos estar de acuerdo en que la siguiente lista de preocupaciones es universa
 - **Extensible:** Es un hecho que tu programa algún día requerirá mantenimiento, posiblemente para añadir nueva funcionalidad. Esos cambios deberían impactar la estructura y el flujo de datos del código original lo mínimo posible (si es que lo hacen).
 - **Reutilizable:** La reutilización del código tiene como objetivo ahorrar recursos, tiempo y dinero, y reducir la redundancia aprovechando el código ya escrito. Hay algunas características que ayudan a lograr este objetivo, como la modularidad (que ya hemos mencionado), la alta cohesión (todas las piezas en un módulo pertenecen juntas), el bajo acoplamiento (los módulos son independientes entre sí), la separación de preocupaciones (las partes de un programa deben superponerse en funcionalidad lo menos posible) y el ocultamiento de información (los cambios internos de un módulo no deberían afectar al resto del sistema).
 
-#### Lo que conseguimos
+---
 
-¿Entonces, la PF te da las cinco características
+### Lo que conseguimos
+
+Entonces, ¿la programación funcional (PF) te da las cinco características que acabamos de listar en la sección anterior?
+
+En la PF, el objetivo es escribir funciones independientes y separadas que se unen para producir los resultados finales.
+
+Los programas que se escriben en un estilo funcional generalmente tienden a ser más limpios, más cortos y más fáciles de entender. 
+
+Las funciones pueden ser probadas de forma independiente, y el código en PF tiene ventajas al lograr esto.
+
+Puedes reutilizar funciones en otros programas porque son independientes, no dependen del resto del sistema. La mayoría de los programas funcionales comparten funciones comunes, varias de las cuales consideraremos en este libro.
+
+El código funcional está libre de efectos secundarios, lo que significa que puedes entender el objetivo de una función al estudiarla sin tener que considerar el resto del programa.
+
+Finalmente, una vez que te acostumbras al estilo de programación funcional, el código se vuelve más comprensible y más fácil de extender. ¡Así que parece que las cinco características pueden lograrse con PF!
+
+---
+
+### No todo es oro
+
+Sin embargo, busquemos un poco de balance. Usar PF no es una bala de plata que mágicamente hará que tu código sea mejor. Algunas soluciones de PF son realmente complicadas, y hay desarrolladores que disfrutan mucho escribir código y luego preguntar, ¿qué hace esto? Si no tienes cuidado, tu código puede volverse "solo escribible" y prácticamente imposible de mantener; ahí se van la comprensibilidad, extensibilidad y reutilización.
+
+Otra desventaja es que puede ser más difícil encontrar desarrolladores con experiencia en PF. (Pregunta rápida: ¿cuántos anuncios de trabajo para programadores funcionales has visto?) La gran mayoría del código web actual está escrito de manera imperativa y no funcional, y la mayoría de los programadores están acostumbrados a esa forma de trabajar. Para algunos, tener que cambiar de mentalidad y comenzar a escribir programas de una manera diferente puede resultar una barrera insuperable.
+
+Finalmente, si intentas hacer todo completamente funcional, puedes encontrarte en desacuerdo con JavaScript, y las tareas simples pueden volverse más difíciles de lo esperado. Como dijimos al principio, optaremos por un enfoque de **Sorta FP**, por lo que no rechazaremos drásticamente ninguna característica del lenguaje que no sea 100% funcional. Después de todo, queremos usar PF para simplificar nuestro código, ¡no para hacerlo más complejo!
+
+Así que, aunque me esforzaré por mostrarte las ventajas de hacer tu código más funcional, como con cualquier cambio, siempre habrá algunas dificultades. Sin embargo, estoy completamente convencido de que podrás superarlas y que tu organización desarrollará mejor código aplicando PF. ¡Atrévete a cambiar!
+
+### ¿Es JavaScript funcional?
+
+En este punto, hay otra pregunta importante que deberías estar haciéndote: ¿Es JavaScript un lenguaje funcional?
+
+Por lo general, cuando se piensa en la programación funcional (PF), la lista de lenguajes que se menciona no incluye a JavaScript, pero sí a opciones menos comunes, como Clojure, Erlang, Haskell y Scala; sin embargo, no existe una definición precisa para los lenguajes funcionales ni un conjunto exacto de características que dichos lenguajes deberían incluir. 
+
+El punto principal es que puedes considerar un lenguaje como funcional si soporta el estilo común de programación asociado con la PF. Empecemos por aprender por qué querríamos usar JavaScript y cómo el lenguaje ha evolucionado hasta su versión actual, para luego ver algunas de las características clave que utilizaremos para trabajar de manera funcional.
+
+### Características clave de JavaScript
+
+JavaScript no es un lenguaje puramente funcional, pero tiene todas las características que necesitamos para que funcione como si lo fuera. Las características principales del lenguaje que utilizaremos son las siguientes:
+
+- Funciones como objetos de primer nivel
+- Recursión
+- Funciones flecha
+- Cerraduras (Closures)
+- Spread
+
+Veamos algunos ejemplos de cada una de estas características y descubramos por qué serán útiles para nosotros. Ten en cuenta, sin embargo, que hay más características de JavaScript que utilizaremos; las secciones siguientes solo destacan las más importantes en términos de lo que vamos a usar para la programación funcional.
+
+---
+
+#### Funciones como objetos de primer nivel (Ordeden Superior)
+
+Decir que las funciones son **objetos de primer nivel** (también llamadas **ciudadanos de primer nivel**) significa que puedes hacer todo con las funciones que puedes hacer con otros objetos. Por ejemplo, puedes almacenar una función en una variable, pasarla a otra función, imprimirla, entre otros.
+
+Esto es realmente clave para hacer programación funcional; a menudo estaremos pasando funciones como parámetros (a otras funciones) o devolviendo una función como el resultado de una llamada a función.
+
+Este fragmento explica cómo se usan los **callbacks** en las llamadas Ajax, un concepto clave en JavaScript para manejar operaciones asíncronas. También muestra un ejemplo usando jQuery.
+
+```javascript
+$.get("some/url", someData, function(result, status) {
+  // Verificar el estado, y hacer algo
+  // con el resultado
+});
+```
+
+La función `$.get()` recibe una función de **callback** como parámetro y la llama después de que se obtiene el resultado.
+
+Dado que las funciones pueden almacenarse en variables, también podrías escribir algo como lo siguiente. Presta atención a cómo usamos la variable `doSomething` en la llamada a `$.get(...)`:
+
+```javascript
+var doSomething = function(result, status) {
+  // Verificar el estado, y hacer algo
+  // con el resultado
+};
+
+$.get("some/url", someData, doSomething);
+
+
+
+
+
+
+
