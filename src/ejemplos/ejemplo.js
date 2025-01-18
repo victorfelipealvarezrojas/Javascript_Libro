@@ -1,20 +1,30 @@
-function fact(n) {
-  if (n === 0) {
-    return 1;
-  } else {
-    return n * fact(n - 1);
-  }
-}
-console.log(fact(5)); // 120
+// funciones de primer orden 
+// funciones que reciben funciones como argumentos
 
-
-const array = [1, 2, 3, 4, 5];
-
-function recorreArray(array, i) {
-  if (i < array.length) {
-    console.log(array[i]);
-    recorreArray(array, i + 1);
-  }
+// función que recibe una función como argumento
+function operar(a, b, operacion) {
+    return operacion(a, b);
 }
 
-recorreArray(array, 0);
+// función que se pasa como argumento
+function suma(a, b) {
+    return a + b;
+}
+
+// función que se pasa como argumento
+function resta(a, b) {
+    return a - b;
+}
+
+// función que se pasa como argumento
+function multiplicacion(a, b) {
+    return a * b;
+}
+
+// función que se pasa como argumento
+function division(a, b) {
+    return a / b;
+}
+
+// llamada a la función operar con la función suma
+console.log(operar(2, 3, suma)); // 5
