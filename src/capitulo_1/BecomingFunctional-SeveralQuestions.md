@@ -17,9 +17,7 @@ En este libro, no abordaremos la PF de manera teórica. En cambio, nuestro objet
 
 Ten cuidado, sin embargo: lo que acabamos de decir no significa que dejaremos toda la teoría a un lado. Seremos selectivos y tocaremos los puntos teóricos principales, aprenderemos algo de vocabulario y definiciones, y explicaremos los conceptos clave de la PF, pero siempre manteniendo en vista la idea de producir un código útil de JavaScript real, en lugar de intentar cumplir con algún criterio místico y dogmático de la PF.
 
-### OOP y la complejidad actual
-
-La programación orientada a objetos (OOP) ha sido una forma de resolver la complejidad inherente a la escritura de programas y sistemas grandes, y desarrollar arquitecturas de aplicaciones limpias, extensibles y escalables. Sin embargo, debido a la escala de las aplicaciones web actuales, la complejidad de todos los códigos sigue creciendo. Además, las nuevas características de JavaScript hacen posible desarrollar aplicaciones que ni siquiera habrían sido posibles hace algunos años; piensa en las aplicaciones móviles (híbridas) hechas con Ionic, Apache Cordova o React Native, o aplicaciones de escritorio hechas con Electron o NW.js, por ejemplo. JavaScript también ha migrado al backend con Node.js, por lo que hoy el alcance de uso del lenguaje ha crecido de una manera seria, abarcando toda la complejidad añadida de los diseños modernos.
+OOP ha sido una forma de resolver la complejidad inherente a la escritura de programas y sistemas grandes, y desarrollar arquitecturas de aplicaciones limpias, extensibles y escalables. Sin embargo, debido a la escala de las aplicaciones web actuales, la complejidad de todos los códigos sigue creciendo. Además, las nuevas características de JavaScript hacen posible desarrollar aplicaciones que ni siquiera habrían sido posibles hace algunos años; piensa en las aplicaciones móviles (híbridas) hechas con Ionic, Apache Cordova o React Native, o aplicaciones de escritorio hechas con Electron o NW.js, por ejemplo. JavaScript también ha migrado al backend con Node.js, por lo que hoy el alcance de uso del lenguaje ha crecido de una manera seria, abarcando toda la complejidad añadida de los diseños modernos.
 
 ### Un enfoque diferente
 
@@ -67,7 +65,7 @@ Entonces, ¿la programación funcional (PF) te da las cinco características que
 
 En la PF, el objetivo es escribir funciones independientes y separadas que se unen para producir los resultados finales.
 
-Los programas que se escriben en un estilo funcional generalmente tienden a ser más limpios, más cortos y más fáciles de entender. 
+Los programas que se escriben en un estilo funcional generalmente tienden a ser más limpios, más cortos y más fáciles de entender.
 
 Las funciones pueden ser probadas de forma independiente, y el código en PF tiene ventajas al lograr esto.
 
@@ -96,6 +94,46 @@ En este punto, hay otra pregunta importante que deberías estar haciéndote: ¿E
 Por lo general, cuando se piensa en la programación funcional (PF), la lista de lenguajes que se menciona no incluye a JavaScript, pero sí a opciones menos comunes, como Clojure, Erlang, Haskell y Scala; sin embargo, no existe una definición precisa para los lenguajes funcionales ni un conjunto exacto de características que dichos lenguajes deberían incluir. 
 
 El punto principal es que puedes considerar un lenguaje como funcional si soporta el estilo común de programación asociado con la PF. Empecemos por aprender por qué querríamos usar JavaScript y cómo el lenguaje ha evolucionado hasta su versión actual, para luego ver algunas de las características clave que utilizaremos para trabajar de manera funcional.
+
+
+# Volviéndose funcional con JavaScript
+
+JavaScript ha evolucionado a través de los años, y la versión que usaremos es (informalmente) llamada JS10, y (formalmente) ECMAScript 2019, generalmente abreviada como ES2019 o ES10; esta versión fue finalizada en junio de 2019. Las versiones anteriores fueron las siguientes:
+
+ECMAScript 1, junio 1997
+
+ECMAScript 2, junio 1998, que era básicamente igual que la versión anterior
+
+ECMAScript 3, diciembre 1999, con varias funcionalidades nuevas
+
+ECMAScript 5, diciembre 2009 (y no, nunca hubo un ECMAScript 4, porque fue abandonado)
+
+ECMAScript 5.1, junio 2011
+
+ECMAScript 6 (o ES6; posteriormente renombrado ES2015), junio 2015
+
+ECMAScript 7 (también ES7, o ES2016), junio 2016
+
+ECMAScript 8 (ES8 o ES2017), junio 2017
+
+ECMAScript 9 (ES9 o ES2018), junio 2018
+
+ECMAScript 10 (ES10 o ES2019), junio 2019
+
+ECMAScript 11 (ES11 o ES2020), junio 2020
+
+ECMAScript 12 (ES12 o ES2021), junio 2021
+
+ECMAScript 13 (ES13 o ES2022), junio 2022
+
+ECMAScript 14 (ES14 o ES2023), junio 2023
+
+ECMAScript 15 (ES15 o ES2024), junio 2024
+
+ECMA originalmente significaba European Computer Manufacturers Association, pero hoy en día el nombre no se considera más un acrónimo. La organización es responsable de más estándares además de JavaScript, incluyendo JSON, C#, Dart, y otros. Para más detalles, visite su sitio en www.ecma-international.org/.
+
+Puede leer la especificación estándar del lenguaje en www.ecma-international.org/ecma-262/7.0/. Cuando nos referimos a JavaScript en el texto sin más especificación, ES10 (ES2019) es a lo que nos referimos; sin embargo, en términos de las características del lenguaje que se utilizan en el libro, si solo usara ES2015, entonces mayormente no tendría problemas con este libro.
+
 
 ### Características clave de JavaScript
 
@@ -137,10 +175,45 @@ var doSomething = function(result, status) {
 };
 
 $.get("some/url", someData, doSomething);
+```
+
+# Recursión
+
+La recursión es la herramienta más potente para desarrollar algoritmos y una gran ayuda para resolver grandes clases de problemas. La idea es que una función puede, en cierto punto, llamarse a sí misma, y cuando esa llamada termina, continuar trabajando con cualquier resultado que haya recibido. Esto suele ser bastante útil para ciertas clases de problemas o definiciones. El ejemplo más citado es la función factorial (el factorial de n se escribe como n!) según se define para valores enteros no negativos:
+
+Si n es 0, entonces n! = 1
+
+Si n es mayor que 0, entonces n! = n * (n-1)!
+
+```javascript
+function fact(n) {
+if (n === 0) {
+    return 1;
+  } else {
+    return n * fact(n - 1);
+  }
+}
+console.log(fact(5)); // 120
+```
+
+La recursión será una gran ayuda para el diseño de algoritmos. Al usar la recursión, se puede prescindir de los bucles while o for. No es que queramos hacerlo, pero es interesante que podamos hacerlo. Dedicaremos la totalidad del Capítulo 9, Diseño de funciones: recursión, a diseñar algoritmos y escribir funciones de forma recursiva.
 
 
+# Closures
 
+Los closures son una forma de implementar el ocultamiento de datos (con variables privadas), lo que conduce a módulos y otras características interesantes. El concepto clave de los closures es que cuando defines una función, esta puede referirse no solo a sus propias variables locales, sino también a todo lo que está fuera del contexto de la función. Podemos escribir una función de conteo que mantendrá su propio contador mediante un closure:
 
+```javascript
+function newCounter() {
+   let count = 0;
+   return function() {
+       count++;
+       return count;
+   };
+}
 
-
-
+const nc = newCounter();
+console.log(nc()); // 1
+console.log(nc()); // 2
+console.log(nc()); // 3
+```
