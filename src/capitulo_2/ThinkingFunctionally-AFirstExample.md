@@ -28,7 +28,7 @@ La parte de HTML de tu aplicación podría tener algo como esto en algún lugar:
 
 Y, entre los scripts, tendrías algo similar al siguiente código:
 
-```
+```javascript
 function billTheUser(some, sales, data) {
   window.alert("Facturando al usuario...");
   // en realidad, facturar al usuario
