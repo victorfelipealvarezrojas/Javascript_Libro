@@ -8,11 +8,11 @@ En el Capítulo 1, Convertirse en Funcional - Varias Preguntas, repasamos qué e
 
 En este capítulo, haremos lo siguiente:
 
-    - Analizar un problema simple y común relacionado con el comercio electrónico.
-    - Considerar varias formas comunes de resolverlo, con sus defectos asociados.
-    - Encontrar una manera de resolver el problema viéndolo de manera funcional.
-    - Idear una solución de orden superior que se pueda aplicar a otros problemas.
-    - Ver cómo llevar a cabo pruebas unitarias para soluciones funcionales.
+- Analizar un problema simple y común relacionado con el comercio electrónico.
+- Considerar varias formas comunes de resolverlo, con sus defectos asociados.
+- Encontrar una manera de resolver el problema viéndolo de manera funcional.
+- Idear una solución de orden superior que se pueda aplicar a otros problemas.
+- Ver cómo llevar a cabo pruebas unitarias para soluciones funcionales.
 
 En capítulos futuros, volveremos a algunos de los temas mencionados aquí, por lo que no entraremos en demasiados detalles. Simplemente mostraremos cómo la FP puede ofrecer una perspectiva diferente para nuestro problema y dejaremos los detalles más profundos para después. Al trabajar en este capítulo, habrás tenido una primera visión de un problema común y una forma de resolverlo pensando de manera funcional, como preludio para el resto de este libro.
 
@@ -22,13 +22,15 @@ Consideremos una situación simple pero común. Has desarrollado un sitio de com
 
 La parte de HTML de tu aplicación podría tener algo como esto en algún lugar:
 
-```
-<button id="billButton" onclick="billTheUser(some, sales, data)">Facturarme</button>
+```javascript
+<button id="billButton" onclick="billTheUser(some, sales, data)">
+  Facturarme
+</button>
 ```
 
 Y, entre los scripts, tendrías algo similar al siguiente código:
 
-```
+```javascript
 function billTheUser(some, sales, data) {
   window.alert("Facturando al usuario...");
   // en realidad, facturar al usuario
