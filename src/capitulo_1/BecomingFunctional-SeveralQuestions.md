@@ -217,3 +217,6 @@ console.log(nc()); // 1
 console.log(nc()); // 2
 console.log(nc()); // 3
 ```
+
+
+[Haz clic aquí para ir al Capítulo 2](./../capitulo_2/ThinkingFunctionally-AFirstExample.md)

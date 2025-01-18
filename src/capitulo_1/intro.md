@@ -18,4 +18,4 @@ Este libro está dirigido a programadores con un buen conocimiento práctico de 
 
 
 
-[Haz clic aquí para ir al Capítulo 1](capitulo_1.md)
+[Haz clic aquí para ir al Capítulo 1](../capitulo_1/BecomingFunctional-SeveralQuestions.md)
